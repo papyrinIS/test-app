@@ -1,0 +1,96 @@
+$color1: #4bbf6b;
+$colorHover: #e2e3e6;
+
+.app {
+  text-align: center;
+  font-size: 20px;
+  height: 100vh;
+  width: 100vw;
+  background: $color1;
+
+  .content {
+    display: grid;
+    grid-template-areas:
+            "tables search"
+            "tables addUser"
+            "tables userInfo"
+            "paginate paginate";
+    grid-template-rows: 0.3fr 2.3fr 3fr .5fr;
+    grid-template-columns: 4fr 3fr;
+
+    &__paginate {
+      grid-area: paginate;
+      background: $color1;
+
+      .pagination {
+        display: flex;
+        justify-content: center;
+        margin-right: 120px;
+        margin-top: -20px;
+        padding: 2px 15px;
+
+      }
+
+      .pageNumber, .buttonNav {
+        font-size: 25px;
+        list-style-type: none;
+        padding: 5px 7px;
+        border: 1px solid transparent;
+        border-radius: 5px;
+      }
+
+      .pageNumber:hover, .buttonNav:hover {
+        cursor: pointer;
+        background: #76ce8e;
+      }
+
+      .activePage {
+        border: 1px solid #000000;
+      }
+
+      .linkPageNumber {
+        outline: none;
+      }
+
+    }
+
+    &__addUser {
+      grid-area: addUser;
+
+      background: $color1;
+    }
+
+    &__userInfo {
+      grid-area: userInfo;
+
+      background: $color1;
+    }
+
+    &__button {
+      border-radius: 5px;
+      height: 35px;
+      padding: 5px 10px;
+      margin-left: 5px;
+      border: 1px solid #000000;
+      font-size: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    &__button:hover {
+      cursor: pointer;
+    }
+  }
+
+  & .preloader {
+    background: #4bbf6b;
+    position: relative;
+    left: 400px;
+    top: 400px;
+  }
+
+
+}
+
+
+
+

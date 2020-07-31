@@ -1,0 +1,27 @@
+.selectTable {
+  height: 300px;
+  width: 500px;
+  margin: auto;
+  background: antiquewhite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 35px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+  .buttons {
+    display: flex;
+
+    &__table {
+      font-size: 25px;
+      padding: 5px 20px;
+      margin: 10px;
+    }
+
+    &__table:hover {
+      cursor: pointer;
+    }
+  }
+}

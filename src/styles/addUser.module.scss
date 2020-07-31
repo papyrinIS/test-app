@@ -1,0 +1,63 @@
+.addUser {
+  grid-area: addUser;
+  background: #ebecf0;
+  display: block;
+  width: 90%;
+  margin: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+
+  &__field {
+    display: flex;
+    text-align: left;
+    margin-left: 20px;
+
+    & span {
+      font-size: 25px;
+      width: 125px;
+      height: 30px;
+      padding-top: 10px;
+    }
+  }
+
+  & button {
+    border-radius: 5px;
+    height: 35px;
+    padding: 5px 10px;
+    margin: 10px 5px;
+    border: 1px solid #000000;
+    font-size: 20px;
+  }
+
+  & button:hover {
+    cursor: pointer;
+  }
+}
+
+.input {
+  margin: 10px 0;
+  height: 30px;
+  width: 250px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  font-size: 20px;
+  padding-left: 10px;
+}
+
+.validate {
+  margin-left: 10px;
+  color: #ff0000;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+

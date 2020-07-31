@@ -1,0 +1,36 @@
+$color1: #ebecf0;
+$colorHover: #e2e3e6;
+
+.table {
+  grid-area: tables;
+  background: $color1;
+  width: 94%;
+  height: 730px;
+  margin: 35px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: all .5s ease;
+
+  .tableRow {
+    font-size: 20px;
+  }
+
+  .tableRow:hover {
+    cursor: pointer;
+    background: $colorHover;
+  }
+
+  &__arrowSort {
+    transform: rotateX(180deg);
+  }
+
+  th:hover {
+    cursor: pointer;
+    background: $colorHover;
+  }
+}
+
+
+
+
+
