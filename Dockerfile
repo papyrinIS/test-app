@@ -1,12 +1,10 @@
-FROM node:alphine
-
-WORKDIR '/app'
-
-COPY package.json .
-
-RUN yarn add
-
+FROM mhart/alpine-node:11 AS builder
+WORKDIR /app
 COPY . .
+RUN yarn run build
 
-CMD ["yarn","start"]
-
+FROM mhart/alpine-node
+RUN yarn global add serve
+WORKDIR /app
+COPY --from=builder /app/build .
+CMD ["serve", "-p", "80", "-s", "."]

@@ -13,7 +13,7 @@ min-height: 100vh;
             "tables addUser"
             "tables userInfo"
             "paginate userInfo";
-    grid-template-rows: 0.3fr 2.3fr 2.3fr .5fr;
+    grid-template-rows: 0.3fr 2.5fr 2.3fr .5fr;
     grid-template-columns: 4fr 3fr;
 
     &__paginate {
