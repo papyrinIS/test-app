@@ -3,11 +3,9 @@ $colorHover: #e2e3e6;
 
 .app {
   text-align: center;
-  font-size: 20px;
-  height: 100vh;
-  width: 100vw;
+  font-size: 14px;
   background: $color1;
-
+min-height: 100vh;
   .content {
     display: grid;
     grid-template-areas:
@@ -15,7 +13,7 @@ $colorHover: #e2e3e6;
             "tables addUser"
             "tables userInfo"
             "paginate paginate";
-    grid-template-rows: 0.3fr 2.3fr 3fr .5fr;
+    grid-template-rows: 0.3fr 2.3fr 2.3fr .5fr;
     grid-template-columns: 4fr 3fr;
 
     &__paginate {
@@ -32,7 +30,7 @@ $colorHover: #e2e3e6;
       }
 
       .pageNumber, .buttonNav {
-        font-size: 25px;
+        font-size: 14px;
         list-style-type: none;
         padding: 5px 7px;
         border: 1px solid transparent;
@@ -72,7 +70,7 @@ $colorHover: #e2e3e6;
       padding: 5px 10px;
       margin-left: 5px;
       border: 1px solid #000000;
-      font-size: 20px;
+      font-size: 14px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     }
 

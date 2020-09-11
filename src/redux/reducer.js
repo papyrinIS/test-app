@@ -1,14 +1,16 @@
 import tableAPI from "../API/API";
 
+
 const GET_USERS = 'GET_USERS'
 const SEARCH = 'SEARCH'
 const IS_LOAD = 'IS_LOAD'
 const ADD_USER = 'ADD_USER'
 const SELECT_TABLE_SIZE='SELECT_TABLE_SIZE'
 const USER_INFO='USER_INFO'
+const CURRENT_PAGE='CURRENT_PAGE'
 
 
-let initialState = {
+export let initialState = {
     isLoad: true,
     users: [],
     search: '',
@@ -16,7 +18,7 @@ let initialState = {
     userId:0,
     isShowUserInfo:false,
     pageSize:25,
-    currentPage:0
+    currentPage:0,
 }
 
 const Reducer = (state = initialState, action) => {
@@ -33,9 +35,15 @@ const Reducer = (state = initialState, action) => {
         }
         case SEARCH: {
             return {
-                ...state, search: action.search,currentPage:0
+                ...state, 
+                search: action.search
             }
         }
+        case CURRENT_PAGE:
+            return{
+                ...state,
+                currentPage:action.currentPage
+            }
         case ADD_USER: {
             return {
                 ...state,
@@ -81,6 +89,7 @@ export const searchAC = (search) => ({type: SEARCH, search});
 export const addUserAC = (id,firstName,lastName,email,phone) => ({type: ADD_USER, id,firstName,lastName,email,phone});
 export const selectTableSizeAC = (size) => ({type: SELECT_TABLE_SIZE, size});
 export const userInfoAC = (isShowUserInfo,id)=>({type:USER_INFO,isShowUserInfo,id})
+export const currentPageAC =(currentPage)=>({type:CURRENT_PAGE,currentPage})
 
 export const getUsersThunk = (tableSize) => async (dispatch) => {
     dispatch(isLoadAC(true))
@@ -94,6 +103,9 @@ export const getUsersThunk = (tableSize) => async (dispatch) => {
         dispatch(isLoadAC(false))
     }
 }
+
+
+
 
 
 export default Reducer

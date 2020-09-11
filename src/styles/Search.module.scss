@@ -5,6 +5,7 @@ $color1: #4bbf6b;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 22px;;
 
   & input {
     margin: 15px 0;
@@ -12,7 +13,7 @@ $color1: #4bbf6b;
     width: 250px;
     border: 1px solid #000000;
     border-radius: 5px;
-    font-size: 20px;
+    font-size: 14px;
     padding-left: 10px;
   }
 
@@ -22,7 +23,7 @@ $color1: #4bbf6b;
     padding: 5px 10px;
     margin-left: 5px;
     border: 1px solid #000000;
-    font-size: 20px;
+    font-size: 14px;
   }
 
   & button:hover {

@@ -3,15 +3,21 @@ import thunkMiddleware from "redux-thunk";
 import Reducer from "./reducer";
 import { reducer as formReducer } from 'redux-form'
 
-
 let reducers = combineReducers({
     Reducer:Reducer,
     form: formReducer
+
 })
 
 
 
-const store = createStore(reducers,applyMiddleware(thunkMiddleware))
+const store = createStore(reducers, applyMiddleware(thunkMiddleware))
+
+
+
+
+
+
 
 window.store = store;
 

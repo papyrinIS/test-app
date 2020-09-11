@@ -1,13 +1,19 @@
+.wrapper{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 .selectTable {
-  height: 300px;
-  width: 500px;
+  height: 150px;
+  width: 300px;
   margin: auto;
   background: antiquewhite;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 35px;
+  font-size: 14px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 
@@ -15,7 +21,7 @@
     display: flex;
 
     &__table {
-      font-size: 25px;
+      font-size:14px;
       padding: 5px 20px;
       margin: 10px;
     }
@@ -24,4 +30,5 @@
       cursor: pointer;
     }
   }
+}
 }

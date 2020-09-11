@@ -2,31 +2,44 @@ import React, {useState} from 'react';
 import ReactPaginate from 'react-paginate';
 import lodash from "lodash"
 import styles from './App.module.scss';
-import TableContainer from "./components/TableContainer";
-import SearchContainer from "./components/SearchContainer";
+import Table from "./components/Table";
+import Search from "./components/Search";
 import {AddUserReduxForm} from "./components/AddUser";
-import {connect} from "react-redux";
-import {addUserAC} from "./redux/reducer";
-import SelectTableContainer from "./components/SelectTableContainer";
-import UserInfoContainer from "./components/UserInfoContainer";
+import {addUserAC,currentPageAC} from "./redux/reducer";
+import SelectTable from "./components/SelectTable";
+import UserInfo from "./components/UserInfo";
+import { useDispatch,useSelector } from 'react-redux';
 
 
-export const App = ({addUserAC, tableSize, isShowUserInfo, users, userId, pageSize,search}) => {
+export const App = () => {
 
+const {users,tableSize,isShowUserInfo,userId,pageSize,search,currentPage}=useSelector(state=>{
+    return{
+        users: state.Reducer.users,
+        tableSize: state.Reducer.tableSize,
+        isShowUserInfo: state.Reducer.isShowUserInfo,
+        userId: state.Reducer.userId,
+        pageSize: state.Reducer.pageSize,
+        search:state.Reducer.search,
+        currentPage:state.Reducer.currentPage
+    }
+})
+
+const dispatch=useDispatch()
 
     const [showForm, setShowForm] = useState('button')
     const closeForm = () => setShowForm('button')
 
     const addUserFormData = formData => {
         setShowForm('button')
-        addUserAC(formData.id, formData.firstName, formData.lastName, formData.email, formData.phone)
+        dispatch(addUserAC(formData.id, formData.firstName, formData.lastName, formData.email, formData.phone))
     }
 
     let selectedUser = users.filter(f => f.id === userId).map(m => m)
 
-    const [currentPage, setCurrentPage] = useState(0)
+
     const handlePageClick = ({selected}) => {
-        setCurrentPage(selected)
+        dispatch(currentPageAC(selected))
     }
 
 
@@ -53,13 +66,13 @@ export const App = ({addUserAC, tableSize, isShowUserInfo, users, userId, pageSi
     return (
         <div className={styles.app}>
             {tableSize === 0 &&
-            <SelectTableContainer/>
+            <SelectTable/>
             }
             {(tableSize === 32 || tableSize === 100) &&
             <div className={styles.content}>
-                <SearchContainer/>
+                <Search/>
 
-                <TableContainer tablePage={tablePage}/>
+                <Table  tablePage={tablePage}/>
 
                 <div className={styles.content__paginate}>
                     {users.length > 25 ?
@@ -69,6 +82,7 @@ export const App = ({addUserAC, tableSize, isShowUserInfo, users, userId, pageSi
                             breakLabel={'...'}
                             breakClassName={'break-me'}
                             pageCount={countPage}
+                            forcePage={currentPage}
                             marginPagesDisplayed={2}
                             pageRangeDisplayed={5}
                             onPageChange={handlePageClick}
@@ -95,7 +109,7 @@ export const App = ({addUserAC, tableSize, isShowUserInfo, users, userId, pageSi
 
                 <div className={styles.content__userInfo}>
                     {isShowUserInfo &&
-                    <UserInfoContainer selectedUser={selectedUser}/>
+                    <UserInfo selectedUser={selectedUser}/>
                     }
                 </div>
             </div>
@@ -105,18 +119,6 @@ export const App = ({addUserAC, tableSize, isShowUserInfo, users, userId, pageSi
     );
 }
 
-const mapStateToProps = (state) => {
-    return {
-        users: state.Reducer.users,
-        tableSize: state.Reducer.tableSize,
-        isShowUserInfo: state.Reducer.isShowUserInfo,
-        userId: state.Reducer.userId,
-        pageSize: state.Reducer.pageSize,
-        search:state.Reducer.search,
-        CurrentPage: state.Reducer.currentPage
-    }
-}
 
-export default connect(mapStateToProps, {addUserAC})(App)
 
 
