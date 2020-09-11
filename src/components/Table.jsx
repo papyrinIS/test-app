@@ -12,9 +12,6 @@ import {getUsersAC, getUsersThunk} from "../redux/reducer";
 
 const Table = ({tablePage}) => {
 
-
-    
-
 const {users,isLoad,tableSize} =useSelector(state=>{
     return{
         users: state.Reducer.users,
@@ -22,13 +19,13 @@ const {users,isLoad,tableSize} =useSelector(state=>{
         tableSize: state.Reducer.tableSize
     }
 })
-
 const dispatch=useDispatch()
+const [sort, setSort] = useState('asc');
+const [sortType, setSortType] = useState();
 
 const getUsersSort = orderData => dispatch(getUsersAC(orderData))
 
-    const [sort, setSort] = useState('desc');
-    const [sortType, setSortType] = useState();
+    
     
     const onSort = e => {
         sort === 'asc' ? setSort('desc') : setSort('asc')
@@ -36,22 +33,15 @@ const getUsersSort = orderData => dispatch(getUsersAC(orderData))
         let orderData = lodash.orderBy(users, e, sort)
         getUsersSort(orderData)
     }
-    let tableUsers = []
-    if (tablePage)
-    { tableUsers = tablePage}
-
-
-
+    
     useEffect(() => {
-       dispatch( getUsersThunk(tableSize))
+       dispatch(getUsersThunk(tableSize))
     }, [dispatch, tableSize])
 
-    let TableRowElements = tableUsers.map(u =><TableRow key={u.id + u.phone} users={u}/>)
-
-    if (isLoad) return <PreloaderPage/>
-    else {
+   
         return <div className={styles.container}>
-            <table className={styles.table}>
+            { !isLoad
+            ?<table className={styles.table}>
             <thead>
             <tr>
                 <th onClick={() => onSort("id")}>id
@@ -83,12 +73,14 @@ const getUsersSort = orderData => dispatch(getUsersAC(orderData))
             </tr>
             </thead>
             <tbody>
-            {TableRowElements}
+            {tablePage && tablePage.map(u =><TableRow key={u.id + u.phone} users={u}/>)}
             </tbody>
         </table>
+        :<PreloaderPage/>
+    }
         </div>
     }
-}
+
 
 
 export default Table

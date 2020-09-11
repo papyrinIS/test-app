@@ -5,10 +5,7 @@ import styles from "../styles/Table.module.scss"
 
 
 export const TableRow = ({users}) => {
-
-    const[isActiveClass,setIsActiveClass]=React.useState(false)
     const dispatch=useDispatch()
-
     let {id, firstName, lastName, email, phone} = users
     const userInfo = () => {
         dispatch(userInfoAC(true, id))

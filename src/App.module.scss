@@ -12,19 +12,17 @@ min-height: 100vh;
             "tables search"
             "tables addUser"
             "tables userInfo"
-            "paginate paginate";
+            "paginate userInfo";
     grid-template-rows: 0.3fr 2.3fr 2.3fr .5fr;
     grid-template-columns: 4fr 3fr;
 
     &__paginate {
       grid-area: paginate;
       background: $color1;
-
+      display: flex;
+      justify-content: flex-end;
       .pagination {
         display: flex;
-        justify-content: center;
-        margin-right: 120px;
-        margin-top: -20px;
         padding: 2px 15px;
 
       }
@@ -32,9 +30,12 @@ min-height: 100vh;
       .pageNumber, .buttonNav {
         font-size: 14px;
         list-style-type: none;
-        padding: 5px 7px;
+        
         border: 1px solid transparent;
         border-radius: 5px;
+        & a{
+          padding: 5px 7px;
+        }
       }
 
       .pageNumber:hover, .buttonNav:hover {
@@ -78,13 +79,18 @@ min-height: 100vh;
       cursor: pointer;
     }
   }
+& .PreloaderContainer{
+  height: 100%;
+  width: 100%;
+  display: flex;
+    justify-content: center;
+    align-items: center;
 
   & .preloader {
     background: #4bbf6b;
-    position: relative;
-    left: 400px;
-    top: 400px;
+    
   }
+}
 
 
 }

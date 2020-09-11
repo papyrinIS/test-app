@@ -3,12 +3,13 @@ $colorHover: #e2e3e6;
 .container{
   grid-area: tables;
   background: $color1;
-  width: 90%;
+  width: 95%;
   height: 570px;
-  margin: 35px;
+  margin: 35px 35px 0 35px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   transition: all .5s ease;
+
 .table {
  width: 100%;
 

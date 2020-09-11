@@ -32,7 +32,7 @@ const dispatch=useDispatch()
 
     const addUserFormData = formData => {
         setShowForm('button')
-        dispatch(addUserAC(formData.id, formData.firstName, formData.lastName, formData.email, formData.phone))
+        dispatch(addUserAC(formData))
     }
 
     let selectedUser = users.filter(f => f.id === userId).map(m => m)

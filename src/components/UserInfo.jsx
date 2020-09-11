@@ -6,11 +6,11 @@ import {userInfoAC} from "../redux/reducer";
 const UserInfo = ({selectedUser}) => {
 const userId = useSelector(state=> state.Reducer.userId)
 const dispatch=useDispatch()
+const {streetAddress, city, state, zip} = selectedUser[0].address
+const showUserInfo = () => dispatch(userInfoAC(false, userId))
 
-    const {streetAddress, city, state, zip} = selectedUser[0].address
-    const showUserInfo = () => dispatch(userInfoAC(false, userId))
     return <div className={styles.userInfo}>
-        <button className={styles.button} onClick={() => showUserInfo()}>закрыть</button>
+        <button className={styles.button} onClick={showUserInfo}>закрыть</button>
 
         <div>
             <span>Описание: </span>

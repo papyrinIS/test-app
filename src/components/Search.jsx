@@ -19,7 +19,7 @@ const Search = () => {
 
     
     return <div className={styles.search}>
-        <input onChange={inputValue} value={value}/>
+        <input placeholder='search' onChange={inputValue} value={value}/>
         <button onClick={Search}>найти</button>
 
     </div>

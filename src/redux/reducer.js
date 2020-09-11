@@ -23,36 +23,37 @@ export let initialState = {
 
 const Reducer = (state = initialState, action) => {
     switch (action.type) {
-        case IS_LOAD: {
+        case IS_LOAD: 
             return {
                 ...state, isLoad: action.isLoad
             }
-        }
-        case GET_USERS: {
+        
+        case GET_USERS: 
             return {
                 ...state, users: [...action.users]
             }
-        }
-        case SEARCH: {
+        
+        case SEARCH: 
             return {
                 ...state, 
                 search: action.search
             }
-        }
+        
         case CURRENT_PAGE:
             return{
                 ...state,
                 currentPage:action.currentPage
             }
-        case ADD_USER: {
+        case ADD_USER:{ 
+        const {id,firstName,lastName,email,phone}=action.formData
             return {
                 ...state,
                 users:[{
-                    id:action.id,
-                    firstName:action.firstName,
-                    lastName:action.lastName,
-                    email:action.email,
-                    phone:action.phone,
+                    id:id,
+                    firstName:firstName,
+                    lastName:lastName,
+                    email:email,
+                    phone:phone,
                     address:{
                     streetAddress: '9792 Mattis Ct',
                     city: 'Waukesha',
@@ -62,20 +63,20 @@ const Reducer = (state = initialState, action) => {
                     description: 'et lacus magna dolor...'
                 }, ...state.users]
             }
-        }
-
-        case SELECT_TABLE_SIZE: {
+        
+}
+        case SELECT_TABLE_SIZE: 
             return {
                 ...state, tableSize: action.size
             }
-        }
-        case USER_INFO: {
+        
+        case USER_INFO: 
             return {
                 ...state,
                 userId:action.id,
                 isShowUserInfo:action.isShowUserInfo
                 }
-            }
+            
 
         default:
             return state
@@ -86,13 +87,14 @@ const Reducer = (state = initialState, action) => {
 export const isLoadAC = (isLoad) => ({type: IS_LOAD, isLoad});
 export const getUsersAC = (users) => ({type: GET_USERS, users});
 export const searchAC = (search) => ({type: SEARCH, search});
-export const addUserAC = (id,firstName,lastName,email,phone) => ({type: ADD_USER, id,firstName,lastName,email,phone});
+export const addUserAC = (formData) => ({type: ADD_USER,formData});
 export const selectTableSizeAC = (size) => ({type: SELECT_TABLE_SIZE, size});
 export const userInfoAC = (isShowUserInfo,id)=>({type:USER_INFO,isShowUserInfo,id})
 export const currentPageAC =(currentPage)=>({type:CURRENT_PAGE,currentPage})
 
 export const getUsersThunk = (tableSize) => async (dispatch) => {
-    dispatch(isLoadAC(true))
+    try{
+        dispatch(isLoadAC(true))
     if(tableSize===32) {
         let data = await tableAPI.getMiniTable()
         dispatch(getUsersAC(data.data))
@@ -102,10 +104,10 @@ export const getUsersThunk = (tableSize) => async (dispatch) => {
         dispatch(getUsersAC(data.data))
         dispatch(isLoadAC(false))
     }
+}catch(err){
+console.log('ошибка получения таблицы:' , err)
 }
-
-
-
+}
 
 
 export default Reducer
