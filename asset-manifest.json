@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/test-app/static/css/main.463c713b.chunk.css",
+    "main.js": "/test-app/static/js/main.29f75717.chunk.js",
+    "main.js.map": "/test-app/static/js/main.29f75717.chunk.js.map",
+    "runtime-main.js": "/test-app/static/js/runtime-main.2be90cb8.js",
+    "runtime-main.js.map": "/test-app/static/js/runtime-main.2be90cb8.js.map",
+    "static/js/2.3f0f75b4.chunk.js": "/test-app/static/js/2.3f0f75b4.chunk.js",
+    "static/js/2.3f0f75b4.chunk.js.map": "/test-app/static/js/2.3f0f75b4.chunk.js.map",
+    "index.html": "/test-app/index.html",
+    "precache-manifest.e9eb0e202e6f3bcd121986d17a1aa2c2.js": "/test-app/precache-manifest.e9eb0e202e6f3bcd121986d17a1aa2c2.js",
+    "service-worker.js": "/test-app/service-worker.js",
+    "static/css/main.463c713b.chunk.css.map": "/test-app/static/css/main.463c713b.chunk.css.map",
+    "static/js/2.3f0f75b4.chunk.js.LICENSE.txt": "/test-app/static/js/2.3f0f75b4.chunk.js.LICENSE.txt",
+    "static/media/sortArrows.svg": "/test-app/static/media/sortArrows.f555bdcf.svg",
+    "static/media/sortUp.svg": "/test-app/static/media/sortUp.22c0b25f.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2be90cb8.js",
+    "static/js/2.3f0f75b4.chunk.js",
+    "static/css/main.463c713b.chunk.css",
+    "static/js/main.29f75717.chunk.js"
+  ]
+}
